@@ -1,0 +1,202 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-7pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+
+\begin{center}
+    \textbf{\Huge \scshape Vladyslav Pshenychnyy} \\ \vspace{1pt}
+    \small 437-463-1290 $|$ \href{mailto:vpshenyc@uwaterloo.ca}{\underline{vpshenyc@uwaterloo.ca}} $|$
+    \href{https://linkedin.com/in/vladyslav-pshenychnyy}{\underline{linkedin.com/in/vladyslav-pshenychnyy}} $|$
+    \href{https://github.com/Batowlad}{\underline{github.com/Batowlad}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Waterloo}{Waterloo, ON}
+      {Bachelor of Computer Science, Co-op}{Sep. 2026 -- May 2031}
+    % Remove the high school entry once you have a full year of university coursework.
+    \resumeSubheading
+      {Assumption College School}{Brantford, ON}
+      {Ontario Secondary School Diploma, Grade 12 Computer Science}{Sep. 2022 -- Jun. 2026}
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {IT Assistant, Co-op}{Jul. 2025 -- Aug. 2025}
+      {Brant Haldimand Norfolk Catholic District School Board}{Brantford, ON}
+      \resumeItemListStart
+        \resumeItem{Returned 200+ student and staff devices to service across 10 schools by imaging, configuring, and deploying Windows machines during the board's summer refresh window}
+        \resumeItem{Cleared 50+ hardware and software tickets from a backlog built up over the school year, halving average turnaround from 60 days to 30 days ahead of the September reopening}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+          {\textbf{Mood-Max} $|$ \emph{Python, JavaScript, LangGraph, Node.js, Chrome Extensions API}}{Sep. 2025 -- Present}
+          \resumeItemListStart
+            \resumeItem{Built a Chrome extension that earned 5 GitHub stars by reading any web article and auto-playing mood-matched background music, requiring no account, OAuth flow, or paid streaming subscription from the user}
+            \resumeItem{Architected the analysis pipeline as a 3-node LangGraph \texttt{StateGraph} (theme and mood extraction, tag generation, track selection) sharing one typed state object, so each stage could be tested and swapped without touching the others}
+            \resumeItem{Removed manual JSON parsing and malformed-response handling across all 3 nodes by binding every LLM call to a Pydantic schema through LangChain's \texttt{with\_structured\_output()}, guaranteeing typed objects downstream}
+            % Cut for length. Restore if you free up a line elsewhere:
+            % \resumeItem{Kept LLM input scoped to the article body on cluttered pages by extracting through 11 prioritized DOM selectors with a boilerplate-stripping fallback, run against a cloned DOM so the live page is never mutated}
+            \resumeItem{Cut YouTube Data API calls on repeated tracks to zero by caching resolved video IDs against normalized queries in an Express backend that also keeps OpenAI and YouTube credentials off the client}
+            % Once measured, swap in the quantified versions:
+            % \resumeItem{Cut model input size on content-heavy pages by [X]\% by extracting the article through 11 prioritized DOM selectors ...}
+            % \resumeItem{Reduced YouTube Data API quota use by [X]\% by caching resolved video IDs ...}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Geodesic Dome Optimizer} $|$ \emph{Python, NumPy, PyNite FEA, trimesh, Tkinter}}{Apr. 2026 -- Jun. 2026}
+          \resumeItemListStart
+            \resumeItem{Improved 3D-printable dome designs 3.6x on a failure-load-over-mass-squared score across 100 generations, by evolving per-strut thickness and radial node offsets with a genetic algorithm scored by finite element analysis}
+            \resumeItem{Evaluated 6,000 candidate structures per run within a practical runtime by distributing FEA scoring across all CPU cores with \texttt{multiprocessing.Pool}, snapshotting parameters into each worker so results stayed correct under Windows and macOS spawn semantics}
+            \resumeItem{Built the fitness evaluator on PyNite, modelling each dome as a 3D frame of PLA rods under a 1 kN apex load and scaling the linear solution to first-yield failure load, with statically determinate supports chosen to avoid over-constraining the base}
+            \resumeItem{Made the 1,600-line pipeline usable by non-programmers through a Tkinter app exposing 8 tuneable parameters with a live fitness curve, dome preview, and one-click trimesh STL export for printing}
+          \resumeItemListEnd
+          % Optional swap-in:
+          % \resumeItem{Prevented the GA from exploiting degenerate geometry by enforcing a 70 to 100 mm radius envelope, including a vectorized point-to-segment check across all 65 struts so no member could cut inside the minimum radius between two valid nodes}
+
+      \resumeProjectHeading
+          {\textbf{Slay the Spire RL Environment} $|$ \emph{Python, C++17, pybind11, Pydantic, Docker}}{Jun. 2026 -- Present}
+          \resumeItemListStart
+            \resumeItem{Building the environment layer for an LLM game-playing agent by wrapping a vendored C++17 engine through pybind11 and converting its objects into 14 frozen dataclasses, so observations, rollout logs, and reward shaping share one typed representation across 1,400 lines}
+            \resumeItem{Prevented information leakage into training data by hiding draw-pile order from the text encoder by default, ensuring the policy is never trained on state it will not have at inference time}
+            \resumeItem{Kept rollout logs replayable across engine versions by recording position-independent action keys instead of step-scoped indices, and validating 327 generated card, relic, and potion records against Pydantic schemas once at import}
+          \resumeItemListEnd
+          % Optional swap-in:
+          % \resumeItem{Made the engine buildable on three platforms by scripting the pybind11 toolchain for MSYS2/mingw64, Apple clang, and Docker, with a runtime probe across four build directories that reports the interpreter on ABI mismatch}
+
+    \resumeSubHeadingListEnd
+
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Python, C++, JavaScript, HTML/CSS, Racket} \\
+     \textbf{Frameworks \& Libraries}{: LangGraph, LangChain, Pydantic, PyTorch, transformers, scikit-learn} \\
+     \textbf{Data \& Scientific}{: NumPy, pandas, matplotlib, trimesh, PyNite (FEA), Tkinter, Node.js, Express, mediapipe, openCV} \\
+     \textbf{Developer Tools}{: Git/GitHub, Docker, VS Code, pybind11, Chrome Extensions API (MV3)} \\
+     \textbf{Concepts}{: LLM Agents, Genetic Algorithms, Parallel Computing, Data Structures, Object Oriented Programming}
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}
